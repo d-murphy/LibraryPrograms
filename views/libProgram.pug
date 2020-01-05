@@ -1,0 +1,189 @@
+script 
+  | var results = !{JSON.stringify(results)}
+  | var userInfo = !{JSON.stringify(userProfile)}
+
+html
+head
+   title Librarian Tools
+   style
+     include css/style.css
+
+   body
+     div.header
+       div.icon
+         a(href="/") 
+           img(src = "https://cdn.glitch.com/d7b2812e-18db-4d98-b36a-64ba8c765442%2FSuffolkLibraryPrograms_logo.png?v=1576465948961", alt = "Logo for Suffolk Library Programs", height = 86, width = 167)
+       div.login
+         a(href="/") Return Home
+         br
+         br
+         a(href="/logout") Logout
+     div.bottom
+       div.pageInfo
+         p 
+           | Hi,  
+           strong #{userProfile.displayName}.  
+           | Use this page to add and delete programs.  
+           div.showGuidelines
+             center 
+               u Guidelines are available
+               | .    
+       div.newProg
+         h4 Advertise a new program:
+         p
+         form(action = "/addProgram", method = "POST")
+          div.formEl
+           label(for = "libName") Library Name:
+           select(name = "libName")
+             option(value='') --Select--
+             option(value='Amagansett Free Library') Amagansett Free Library
+             option(value='Amityville Public Library') Amityville Public Library
+             option(value='Babylon Public Library') Babylon Public Library
+             option(value='Baiting Hollow Free Library') Baiting Hollow Free Library
+             option(value='Bay Shore-Brightwaters Public Library') Bay Shore-Brightwaters Public Library
+             option(value='Bayport-Blue Point Public Library') Bayport-Blue Point Public Library
+             option(value='Brentwood Public Library') Brentwood Public Library
+             option(value='Brookhaven Free Library') Brookhaven Free Library
+             option(value='Center Moriches Free Public Library') Center Moriches Free Public Library
+             option(value='Central Islip Public Library') Central Islip Public Library
+             option(value='Cold Spring Harbor Library') Cold Spring Harbor Library
+             option(value='Commack Public Library') Commack Public Library
+             option(value='Comsewogue Public Library') Comsewogue Public Library
+             option(value='Connetquot Public Library') Connetquot Public Library
+             option(value='Copiague Memorial Public Library') Copiague Memorial Public Library
+             option(value='Cutchogue-New Suffolk Free Library') Cutchogue-New Suffolk Free Library
+             option(value='Deer Park Public Library') Deer Park Public Library
+             option(value='East Hampton Library') East Hampton Library
+             option(value='East Islip Public Library') East Islip Public Library
+             option(value='Elwood Public Library') Elwood Public Library
+             option(value='Emma S. Clark Memorial Library') Emma S. Clark Memorial Library
+             option(value='Fishers Island Library Association') Fishers Island Library Association
+             option(value='Floyd Memorial Library') Floyd Memorial Library
+             option(value='Half Hollow Hills Community Library') Half Hollow Hills Community Library
+             option(value='Half Hollow Hills - Melville Library') Half Hollow Hills - Melville Library
+             option(value='Hampton Bays Public Library') Hampton Bays Public Library
+             option(value='Hampton Library in Bridgehampton') Hampton Library in Bridgehampton
+             option(value='Harborfields Public Library') Harborfields Public Library
+             option(value='Hauppauge Public Library') Hauppauge Public Library
+             option(value='Huntington Public Library') Huntington Public Library
+             option(value='Huntington Public Library - Huntington Station Branch') Huntington Public Library - Huntington Station Branch
+             option(value='Islip Public Library') Islip Public Library
+             option(value='John Jermain Memorial Library') John Jermain Memorial Library
+             option(value='Lindenhurst Memorial Library') Lindenhurst Memorial Library
+             option(value='Longwood Public Library') Longwood Public Library
+             option(value='Mastics-Moriches-Shirley Community Library') Mastics-Moriches-Shirley Community Library
+             option(value='Mattituck-Laurel Library') Mattituck-Laurel Library
+             option(value='Middle Country Public Library') Middle Country Public Library
+             option(value='Middle Country Public Library - Selden Branch') Middle Country Public Library - Selden Branch
+             option(value='Montauk Library') Montauk Library
+             option(value='North Babylon Public Library') North Babylon Public Library
+             option(value='North Shore Public Library') North Shore Public Library
+             option(value='Northport-East Northport Public Library') Northport-East Northport Public Library
+             option(value='East Northport Library') East Northport Library
+             option(value='Patchogue-Medford Library') Patchogue-Medford Library
+             option(value='Port Jefferson Free Library') Port Jefferson Free Library
+             option(value='Quogue Library') Quogue Library
+             option(value='Riverhead Free Library') Riverhead Free Library
+             option(value='Rogers Memorial Library') Rogers Memorial Library
+             option(value='Sachem Public Library') Sachem Public Library
+             option(value='Sayville Library') Sayville Library
+             option(value='Shelter Island Public Library') Shelter Island Public Library
+             option(value='The Smithtown Library - Main') The Smithtown Library - Main
+             option(value='Smithtown Library - Commack Branch') Smithtown Library - Commack Branch
+             option(value='Smithtown Library - Kings Park Branch') Smithtown Library - Kings Park Branch
+             option(value='Smithtown Library - Nesconset Branch') Smithtown Library - Nesconset Branch
+             option(value='South Country Library') South Country Library
+             option(value='South Huntington Public Library') South Huntington Public Library
+             option(value='Southold Free Library') Southold Free Library
+             option(value='West Babylon Public Library') West Babylon Public Library
+             option(value='West Islip Public Library') West Islip Public Library
+             option(value='Westhampton Free Library') Westhampton Free Library
+             option(value='Wyandanch Public Library') Wyandanch Public Library
+          br
+          div.formEl
+           label(for = "programName") Program Name:
+           input(name = "programName")
+          br
+          div.formEl
+           label(for = "date") Program Date:
+           input(name = "date", type="date")
+          br
+          div.formEl
+           label(for = "time") Program Time:
+           input(name = "time", type="time")
+          br
+          div.formEl
+           label(for = "programCat") Program Category:
+           select(name = "programCat")
+             option(value="") --Select--
+             option(value="Arts and Crafts") Arts & Crafts
+             option(value="Computers and Tech") Computers and Tech
+             option(value="Cooking") Cooking
+             option(value="General") General
+             option(value="Health and Wellness") Health & Wellness
+             option(value="Literary") Literary / Book Club
+             option(value="Music") Music 
+          br
+          div.formEl
+           label(for = "linkType") Button Text:
+           select(name = "linkType")
+             option(value="Click to Register") Click to Register
+             option(value="Call to Register") Call to Register
+             option(value="No Registration Required") No Registration Required
+          br
+          div.formEl
+           label(for = "regUrl") Registration URL (e.g "http://..."):
+           input(name = "regUrl")
+          br
+          div.formEl
+           label(for = "desc") Description:
+           input(name = "desc")
+          br
+          div.formEl
+            button(type = "submit") Add Program
+       div.listings-outside
+         p
+           strong Here are the events currently advertised on the site: 
+         div.listings-inside
+           ul.WithoutPoint
+             - var CurrentLibrary = "";
+             each n in results
+               if CurrentLibrary != n.library
+                 br
+                 strong= n.library
+                 br
+               div.line
+                 li.info= n.day + ", " + (n.date.getMonth()+1) + "/" + n.date.getDate() + "/" + n.date.getFullYear() + " at " + n.time + " - " + n.programName + " - Category: " + n.programCat 
+                 li.regLink: a(href=n.regUrl)= n.linkType
+                 li.delLink: a(href="/deleteProgram/"+n.id) Delete
+               - CurrentLibrary = n.library
+
+       div.overlay
+         div.overlay-content
+           br
+           br
+           strong What to add
+           br
+           ul
+             li The audience for this site is all Suffolk County library patrons.  If a program is open to only your library's residents, do not list it here.
+             li Only add programs with open seats.    
+             li When a program fills, delete it on this page.  
+           br
+           strong Completing the form
+           ul
+             li Select "General" for Program Category if no other options are appropriate.
+             li Your information URL should lead with "http://" or "https://".
+             li When using "Click to Register" as the Button Text, the URL should lead to a registration page (e.g. the Livebrary registration page).
+             li URL is required.  If using "Call to Register" or "No Registration Required" and there is no webpage for the event, post a general purpose URL such as the library's website.   
+             li Keep your descriptions brief.
+           br
+           strong Editing and deleting entries
+           ul
+             li For simplicity's sake, there is no edit function.  Delete an event and re-enter if you need to make changes.
+             li Delete rights are open for all users - generally you should only remove events from your library.
+             li As mentioned above, delete an event when all seats are filled.
+
+
+include scripts/libProgram.js
+
+

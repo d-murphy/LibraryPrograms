@@ -1,0 +1,28 @@
+html
+   head
+      title Program Removed
+      style
+        include css/style.css
+   body
+     div.header
+       div.icon
+         a(href="/") 
+           img(src = "https://cdn.glitch.com/d7b2812e-18db-4d98-b36a-64ba8c765442%2FSuffolkLibraryPrograms_logo.png?v=1576465948961", alt = "Logo for Suffolk Library Programs", height = 86, width = 167)
+       div.login
+         a(href="/") Return Home
+         br
+         br
+         a(href="/logout") Logout
+     div.addDelMessage
+       if(type == "error")
+         h3 There was an error removing the program.  
+       else
+         h3 Hi: #{removedProgram.deletedby}
+         p
+           | You have removed #{removedProgram.programName} at #{removedProgram.library}
+           | scheduled for 
+           | #{removedProgram.day + ", " + (removedProgram.date.getMonth()+1) + "/" + removedProgram.date.getDate() + "/" + removedProgram.date.getFullYear() + " at " + removedProgram.time}
+         p
+           | This program was originally added by #{removedProgram.addedby}
+         p
+           a(href="/addProgram") Return to Librarian Tools
