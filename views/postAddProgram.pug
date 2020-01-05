@@ -1,0 +1,43 @@
+html
+   head
+      title Program Added
+      style
+        include css/style.css
+   body
+     div.header
+       div.icon
+         a(href="/") 
+           img(src = "https://cdn.glitch.com/d7b2812e-18db-4d98-b36a-64ba8c765442%2FSuffolkLibraryPrograms_logo.png?v=1576465948961", alt = "Logo for Suffolk Library Programs", height = 86, width = 167)
+       div.login
+         a(href="/") Return Home
+         br
+         br
+         a(href="/logout") Logout
+     div.addDelMessage
+       if(type == "error")
+         h3 There was an error adding the program.  Did you complete all fields?  
+       else
+         p
+           | The program was added successfully.  
+           a(href="/addProgram") Return to Librarian Tools 
+           | to add another.  
+         div.event
+           p 
+             strong #{addProgram.programName}
+             br
+             br
+             | #{addProgram.day + ", " + (addProgram.date.getMonth()+1) + "/" + addProgram.date.getDate() + "/" + addProgram.date.getFullYear() + " at " + addProgram.time}
+             br
+             | #{addProgram.library}
+             br
+             br 
+             strong Program Category: 
+             | #{addProgram.programCat}
+             br
+             strong Description: 
+             | #{addProgram.description}
+             br
+             br
+             a(href= addProgram.regUrl) #{addProgram.linkType}
+
+
