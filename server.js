@@ -85,7 +85,7 @@ const secured = (req, res, next) => {
 
 const connectionString =
   "mongodb+srv://" + process.env.AdbUn + process.env.adbPw + 
-  "@cluster0-hcizx.mongodb.net/LibProgramDb";
+  "@cluster0-hcizx.mongodb.net/" + process.env.dbName;
 var mongoose = require('mongoose');
 try{
   mongoose.connect(connectionString, {useNewUrlParser: true})
