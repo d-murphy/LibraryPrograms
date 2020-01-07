@@ -274,5 +274,6 @@ app.get('/failure', function(req,res,next) {
 app.get('/nonLibEmail', function(req,res,next) {
   res.render('nonLibEmail');
 });
-                                     
-app.listen(3000);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
