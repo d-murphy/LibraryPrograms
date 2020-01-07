@@ -29,7 +29,7 @@ const strategy = new Auth0Strategy(
     domain: process.env.AUTH0_DOMAIN,
     clientID: process.env.AUTH0_CLIENT_ID,
     clientSecret: process.env.AUTH0_CLIENT_SECRET,
-    callbackURL: 'https://libproauth0.glitch.me/callback'
+    callbackURL: 'https://suffolkcountylibraryprograms.herokuapp.com/callback'
   },
   function(accessToken, refreshToken, extraParem, profile, done){
     return done(null, profile);
@@ -219,7 +219,7 @@ app.get('/deleteProgram/:id', function(req, res){
 app.get('/login', passport.authenticate('auth0', {
     clientID: process.env.AUTH0_CLIENT_ID, 
     domain: process.env.AUTH0_DOMAIN, 
-    redirectUri: 'https://libproauth0.glitch.me/',
+    redirectUri: 'https://suffolkcountylibraryprograms.herokuapp.com/',
     responseType: 'code',
     audience: 'https://dev-5uhhmfa3.auth0.com/api/v2/',
     scope: 'openid email profile'}),
@@ -241,7 +241,7 @@ app.get('/logout', function (req,res) {
   //auth0 logout
    const logoutUrl = 'https://' + process.env.AUTH0_DOMAIN + 
                     '/v2/logout?client_id=' + process.env.AUTH0_CLIENT_ID + 
-                    '&returnTo=https://libproauth0.glitch.me/';        
+                    '&returnTo=https://suffolkcountylibraryprograms.herokuapp.com/';        
    res.redirect(logoutUrl);
     })
   }
