@@ -155,7 +155,7 @@ head
                div.line
                  li.info= n.day + ", " + (n.date.getMonth()+1) + "/" + n.date.getDate() + "/" + n.date.getFullYear() + " at " + n.time + " - " + n.programName + " - Category: " + n.programCat 
                  li.regLink: a(href=n.regUrl)= n.linkType
-                 li.delLink: a(href="/deleteProgram/"+n.id) Delete
+                 li.delLink: a(href="/deleteProgram/"+n.id onclick="return confirm('Are you sure you want to delete this item?');") Delete
                - CurrentLibrary = n.library
 
        div.overlay
