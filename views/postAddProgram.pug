@@ -21,23 +21,26 @@ html
            | The program was added successfully.  
            a(href="/addProgram") Return to Librarian Tools 
            | to add another.  
-         div.event
+         div.eventAdded
            p 
              strong #{addProgram.programName}
              br
              br
+             strong Date:  
              | #{addProgram.day + ", " + (addProgram.date.getMonth()+1) + "/" + addProgram.date.getDate() + "/" + addProgram.date.getFullYear() + " at " + addProgram.time}
              br
+             strong Library:  
              | #{addProgram.library}
-             br
              br 
-             strong Program Category: 
+             strong Program Category:  
              | #{addProgram.programCat}
              br
-             strong Description: 
+             br
+             strong Description:  
              | #{addProgram.description}
              br
              br
+             strong Link:  
              a(href= addProgram.regUrl) #{addProgram.linkType}
 
 
