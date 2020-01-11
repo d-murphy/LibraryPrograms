@@ -6,6 +6,7 @@ var curLibFilters = [];
    var subjFilters = [{name: "Arts and Crafts"},
                       {name: "Computers and Tech"},
                       {name: "Cooking"},
+                      {name: "Finance"},
                       {name: "General"},
                       {name: "Health and Wellness"},
                       {name: "Literary"}, 

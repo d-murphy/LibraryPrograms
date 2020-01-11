@@ -116,6 +116,12 @@ a:visited {
   top: -1px;
 }
 
+.eventAdded {
+  border: 1px solid #c2c2c2;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
 .progDate {
   color: #3495c9;
   padding: 5px;
@@ -222,6 +228,7 @@ ul {
 
 ul.WithoutPoint {
   list-style-type: none;  
+  font-size: 14px;
 }
 
 .addDelMessage {
