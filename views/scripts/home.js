@@ -7,6 +7,7 @@ var curLibFilters = [];
                       {name: "Computers and Tech"},
                       {name: "Cooking"},
                       {name: "Finance"},
+                      {name: "Fun and Games"},
                       {name: "General"},
                       {name: "Health and Wellness"},
                       {name: "Literary"}, 
