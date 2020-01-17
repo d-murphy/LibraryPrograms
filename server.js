@@ -116,9 +116,7 @@ var LibProgram = mongoose.model("LibProgram", programSchema);
 
 app.get('/addProgram', secured, function(req,res){
   const { _raw, _json, ...userProfile } = req.user;
-  var dateOffset = (24*60*60*1000) * 1; //1 day
   var DateRangeStart = new Date(Date.now())
-  DateRangeStart.setTime(DateRangeStart.getTime() - dateOffset);
  
   LibProgram.
     find({ date: {$gte: DateRangeStart}, eventActive: "Active" }).
@@ -187,10 +185,8 @@ var handleError = function(err){
 
 app.get('/', function(req, res){
 
-  var dateOffset = (24*60*60*1000) * 1; //1 day
   var DateRangeStart = new Date(Date.now())
-  DateRangeStart.setTime(DateRangeStart.getTime() - dateOffset);
- 
+
   LibProgram.
     find({ date: {$gte: DateRangeStart}, eventActive: "Active" }).
     sort('date').
