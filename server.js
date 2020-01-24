@@ -65,6 +65,7 @@ app.use(passport.session());
 app.use(function(req, res, next) {
   res.locals.loggedIn = false;
   if(req.session.passport && typeof req.session.passport.user != 'undefined') {
+    console.log("message # 3");
     res.locals.loggedIn = true;
   }
   next();
@@ -72,10 +73,14 @@ app.use(function(req, res, next) {
 
 const secured = (req, res, next) => {
     if(req.user){ 
+      console.log("message # 1 - here's the current return to session:");
+      console.log(req.session.returnTo); 
       req.session.returnTo = req.originalUrl;
+      console.log("here's the new return to session:");
+      console.log(req.session.returnTo);
     next();
   } else {
-    console.log("No user detected");
+    console.log("No user detected, message # 2");
     res.redirect("/");
   }
 };
@@ -115,6 +120,7 @@ var LibProgram = mongoose.model("LibProgram", programSchema);
 
 
 app.get('/addProgram', secured, function(req,res){
+  console.log("message # 4");
   const { _raw, _json, ...userProfile } = req.user;
   var DateRangeStart = new Date(Date.now())
  
@@ -252,10 +258,15 @@ app.get('/callback', function (req, res, next) {
       return next(err); 
     }
     if (!user) { 
+      console.log("message #5"); 
       return res.redirect('/verify'); }
     req.logIn(user, function (err) {
-      if (err) { return next(err); }
+      console.log("message #6");
+      if (err) { return next(err); console.log("message #8") }
+      console.log("message #7")
       const returnTo = req.session.returnTo;
+      console.log("Return to is")
+      console.log(returnTo);
       delete req.session.returnTo;
       res.redirect('/addProgram');
     });
