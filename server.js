@@ -55,7 +55,8 @@ app.use(
     store: new FileStore,
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    retries: 0
   })
 );
 
