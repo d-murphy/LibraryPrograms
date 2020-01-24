@@ -226,6 +226,7 @@ app.get('/login', passport.authenticate('auth0', {
     audience: 'https://dev-5uhhmfa3.auth0.com/api/v2/',
     scope: 'openid email profile'}),
         function(req,res) {
+          console.log("message # 10");
           res.redirect('/callback');
     }
 ); 
