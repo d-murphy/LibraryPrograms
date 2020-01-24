@@ -52,11 +52,10 @@ passport.deserializeUser(function(user,done){
 
 app.use(
   session({
-    store: new FileStore,
+    store: new FileStore({logFn: function(){}}),
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
-    retries: 0
+    saveUninitialized: false
   })
 );
 
