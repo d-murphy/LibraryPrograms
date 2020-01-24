@@ -52,7 +52,7 @@ passport.deserializeUser(function(user,done){
 
 app.use(
   session({
-    store: new FileStore({logFn: function(){}}),
+    store: new FileStore,
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
@@ -222,7 +222,7 @@ app.get('/login',
         passport.authenticate('auth0', {
     clientID: process.env.AUTH0_CLIENT_ID, 
     domain: process.env.AUTH0_DOMAIN, 
-    redirectUri: process.env.SITE_URL + "callback",
+    redirectUri: process.env.SITE_URL, //deleted from here
     responseType: 'code',
     audience: 'https://dev-5uhhmfa3.auth0.com/api/v2/',
     scope: 'openid email profile'}),
@@ -261,7 +261,9 @@ app.get('/callback', function (req, res, next) {
     }
     if (!user) { 
       console.log("message #5"); 
-      return res.redirect('/verify'); }
+      return res.redirect('/verify'); 
+    }
+    console.log("message #12");
     req.logIn(user, function (err) {
       console.log("message #6");
       if (err) { return next(err); console.log("message #8") }
