@@ -218,10 +218,11 @@ app.get('/deleteProgram/:id', function(req, res){
 });
 
 
-app.get('/login', passport.authenticate('auth0', {
+app.get('/login',
+        passport.authenticate('auth0', {
     clientID: process.env.AUTH0_CLIENT_ID, 
     domain: process.env.AUTH0_DOMAIN, 
-    redirectUri: process.env.SITE_URL,
+    redirectUri: process.env.SITE_URL + "callback",
     responseType: 'code',
     audience: 'https://dev-5uhhmfa3.auth0.com/api/v2/',
     scope: 'openid email profile'}),
