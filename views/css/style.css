@@ -42,8 +42,9 @@ a:visited {
   padding-top: 15px;
   padding-bottom: 15px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
+  
 }
 
 .subjFilters {
@@ -52,8 +53,8 @@ a:visited {
 
 .filter {
   padding: 3px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 35px;
+  padding-right: 35px;
   border: 1px solid #B3B3B2;
   border-radius: 5px;
   color: grey;
@@ -64,8 +65,8 @@ a:visited {
 
 .filterClicked {
   padding: 3px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 35px;
+  padding-right: 35px;
   border: 1px solid #444444;
   border-radius: 5px;
   margin: 2px;
