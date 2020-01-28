@@ -20,7 +20,10 @@ html
          div.event
            div.progDate= n.day + ", " + (n.date.getMonth()+1) + "/" + n.date.getDate() + "/" + n.date.getFullYear() + " at " + n.time
            div.progName= n.programName
-           div.library= n.library
+           div.greyRowContainer
+             div.audience= n.audience
+             div.delim  - 
+             div.library= n.library
            div.progDesc= n.description
            div.programCat= n.programCat
            div.blankSpace 

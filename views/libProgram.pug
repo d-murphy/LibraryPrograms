@@ -113,10 +113,21 @@ head
            input(name = "time", type="time")
           br
           div.formEl
+           label(for = "audience") Audience:
+           select(name = "audience")
+             option(value="") --Select--
+             option(value="Adults") Adults
+             option(value="Children") Children
+             option(value="New Adults (20-30)") New Adults (20-30)
+             option(value="Seniors") Seniors
+             option(value="Teens") Teens
+          br
+          div.formEl
            label(for = "programCat") Program Category:
            select(name = "programCat")
              option(value="") --Select--
              option(value="Arts and Crafts") Arts & Crafts
+             option(value="Community Service") Community Service
              option(value="Computers and Tech") Computers and Tech
              option(value="Cooking") Cooking
              option(value="Finance") Finance
