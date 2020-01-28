@@ -166,7 +166,7 @@ head
                  strong= n.library
                  br
                div.line
-                 li.info= n.day + ", " + (n.date.getMonth()+1) + "/" + n.date.getDate() + "/" + n.date.getFullYear() + " at " + n.time + " - " + n.programName + " - Category: " + n.programCat 
+                 li.info= n.audience + " | " + n.programCat + " | " + n.programName + " | " + n.day + ", " + (n.date.getMonth()+1) + "/" + n.date.getDate() + "/" + n.date.getFullYear() + " at " + n.time 
                  li.regLink: a(href=n.regUrl target="_blank")= n.linkType
                  li.delLink: a(href="/deleteProgram/"+n.id onclick="return confirm('Are you sure you want to delete this item?');") Delete
                - CurrentLibrary = n.library
