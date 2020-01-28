@@ -99,6 +99,7 @@ var programSchema = mongoose.Schema({
   time: String,
   day: String,
   programName: String,
+  audience: String,
   programCat: String,
   description: String,
   linkType: String,
@@ -137,8 +138,9 @@ app.post('/addProgram', function(req, res){
    var programInfo = req.body; //Get the parsed information
    if(!programInfo.libName || !programInfo.programName ||
       !programInfo.date || !programInfo.regUrl ||
-      !programInfo.desc || !programInfo.programCat ||
-      !programInfo.time ){
+      !programInfo.desc || !programInfo.programCat || 
+      !programInfo.audience  || !programInfo.time 
+     ){
       res.render('postAddProgram', {
          message: "Sorry, you provided incomplete info", type: "error"});
    } else {
@@ -146,6 +148,7 @@ app.post('/addProgram', function(req, res){
         library: programInfo.libName,
         date: programInfo.date,
         programName: programInfo.programName,
+        audience: programInfo.audience,
         programCat: programInfo.programCat,
         description: programInfo.desc,
         linkType: programInfo.linkType,
