@@ -134,7 +134,7 @@ app.get('/addProgram', secured, function(req,res){
 var weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
                     "Thursday", "Friday", "Saturday"]
 
-app.post('/addProgram', function(req, res){
+app.post('/addProgram', secured, function(req, res){
    var programInfo = req.body; //Get the parsed information
    if(!programInfo.libName || !programInfo.programName ||
       !programInfo.date || !programInfo.regUrl ||
@@ -199,7 +199,7 @@ app.get('/', function(req, res){
   });
 });
 
-app.get('/deleteProgram/:id', function(req, res){
+app.get('/deleteProgram/:id', secured, function(req, res){
    LibProgram.findByIdAndUpdate(req.params.id, 
                                 {eventActive: "Inactive", deletedby: req.user.displayName}, 
                                 {new: true}, 
