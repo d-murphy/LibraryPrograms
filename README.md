@@ -1,6 +1,8 @@
 ### Suffolk County Library Programs
 =================
 
+[View the Project](https://libproauth0.glitch.me/)  (This may take a second to load)
+
 Suffolk County Library Programs is a web app built in 2020 as a proof of concept to provide libraries in Suffolk County, 
 NY with a central location to share programs with excess capacity.  The site was live with a small pool of users
 before being suspended due to the Covid outbreak.  
