@@ -45,7 +45,6 @@ passport.serializeUser(function(user,done){
 });
 
 
-//get user by id? 28:49 of https://www.youtube.com/watch?v=-RCnNyD0L-s
 passport.deserializeUser(function(user,done){
   done(null,user);
 });
@@ -111,8 +110,6 @@ var programSchema = mongoose.Schema({
 var LibProgram = mongoose.model("LibProgram", programSchema);
 
 // routes
-
-
 
 app.get('/addProgram', secured, function(req,res){
   const { _raw, _json, ...userProfile } = req.user;
@@ -225,8 +222,6 @@ app.get('/login',
 ); 
 
 app.get('/logout', function (req,res) {
-  // advice from:  https://community.auth0.com/t/having-trouble-with-logout-on-the-sample-nodejs-app/18172/10
-  // and calvincs 1/27 comment:  https://community.auth0.com/t/having-trouble-with-logout-on-the-sample-nodejs-app/18172/10  
   //passport logout
   req.logout();
   if (req.session) {
